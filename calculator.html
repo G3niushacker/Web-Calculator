@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+          Simple Calculator
+        </title>
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+            }
+            .dev{
+                background-color: #333;
+                color: white;
+                margin: 0 , auto;
+                width: 220px;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 2px , red;
+                transform: translateX(-50%);
+                transform: translateY(-50%);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+            }
+            h1{
+                text-align: center;
+            }
+            #btn{
+                height: 50px;
+                width: 50px;
+                color: white;
+                background-color: red;
+                border: none;
+                cursor: pointer;
+                outline: none;
+            }
+            .inp{
+                width: 210px;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Simple Calculator</h1>
+        <div class="dev">
+           <form name="frm">
+            <input type="text" class="inp" name="inp">
+           </br>
+        </br>
+        </form>
+               <table>
+                <tr>
+                    <td><input type="button" id="btn" value="9" onclick="add(9)"></td>
+                    <td><input type="button" id="btn" value="8" onclick="add(8)"></td>
+                    <td><input type="button" id="btn" value="7" onclick="add(7)"></td>
+                    <td><input type="button" id="btn" value="-" onclick="add('-')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" id="btn" value="6" onclick="add(6)"></td>
+                    <td><input type="button" id="btn" value="5" onclick="add(5)"></td>
+                    <td><input type="button" id="btn" value="4" onclick="add(4)"></td>
+                    <td><input type="button" id="btn" value="+" onclick="add('+')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" id="btn" value="3" onclick="add(3)"></td>
+                    <td><input type="button" id="btn" value="2" onclick="add(2)"></td>
+                    <td><input type="button" id="btn" value="1" onclick="add(1)"></td>
+                    <td><input type="button" id="btn" value="x" onclick="add('*')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" id="btn" value="0" onclick="add(0)"></td>
+                    <td><input type="button" id="btn" value="/" onclick="add('/')"></td>
+                    <td><input type="button" id="btn" value="." onclick="add('.')"></td>
+                    <td rowspan="3"><input  style="height: 102px;" type="button" id="btn" value="=" onclick="equal()"></td>
+                </tr>
+                <tr>
+                <td colspan="2"><input style="width: 102px;" type="button" id="btn" value="C" onclick="cler()"></td>
+                <td><input type="button" id="btn" value="<" onclick="back()"></td>
+                </tr>
+               </table>
+        
+        </div>
+
+        <script>
+            function equal(){
+                evl = document.frm.inp.value;
+                if(evl){
+                    document.frm.inp.value = eval(evl);
+                }
+            }
+            function back(){
+                var val = document.frm.inp.value;
+                document.frm.inp.value = val.substring(0,val.length-1);
+            }
+            function cler(){
+                document.frm.inp.value = "";
+            }
+           function add(num){
+                document.frm.inp.value = document.frm.inp.value + num;
+                
+           }
+        </script>
+    </body>
+</html>
